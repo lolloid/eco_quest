@@ -1,0 +1,42 @@
+{
+  "name": "ecoquest",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "node scripts/smokeArchitecture.js && node scripts/unitArchitecture.js",
+    "seed": "node scripts/seedFirestore.js",
+    "seed:architecture": "node scripts/seedArchitecture.js",
+    "generate:game-assets": "node scripts/generateEcoPixelAssets.js",
+    "redesign:game-map": "node scripts/redesignGameMapReadability.js",
+    "scaffold:professional-assets": "node scripts/scaffoldProfessionalGameAssets.js",
+    "import:professional-assets": "node scripts/importProfessionalAssetPack.js",
+    "install:cc0-professional-assets": "node scripts/installCc0ProfessionalAssets.js",
+    "validate:game-assets": "node scripts/validateProfessionalGameAssets.js",
+    "generate:tilemap": "node scripts/generateTilemap.js",
+    "deploy:rules": "firebase deploy --only firestore:rules"
+  },
+  "dependencies": {
+    "@dataconnect/admin-generated": "file:src/dataconnect-admin-generated",
+    "@dataconnect/generated": "file:src/dataconnect-generated",
+    "firebase": "^10.14.1",
+    "firebase-admin": "^12.1.0",
+    "framer-motion": "^12.38.0",
+    "next": "^14.2.0",
+    "phaser": "^3.80.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "@types/react": "^19.2.14",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^6.0.3"
+  }
+}

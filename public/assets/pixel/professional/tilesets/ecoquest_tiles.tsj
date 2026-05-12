@@ -1,0 +1,15 @@
+{
+  "columns": 8,
+  "image": "ecoquest_tiles.png",
+  "imageheight": 320,
+  "imagewidth": 256,
+  "margin": 0,
+  "name": "ecoquest_tiles",
+  "spacing": 0,
+  "tilecount": 80,
+  "tiledversion": "1.11.0",
+  "tileheight": 32,
+  "tilewidth": 32,
+  "type": "tileset",
+  "version": "1.10"
+}

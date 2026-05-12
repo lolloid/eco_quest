@@ -1,0 +1,22 @@
+{
+  "files": {
+    "map": "maps/eco_world.json",
+    "tiles": "tilesets/ecoquest_tiles.png",
+    "hero": "characters/hero.png",
+    "npcs": "characters/npcs.png",
+    "trash": "objects/trash_items.png",
+    "stations": "objects/stations.png",
+    "uiTiles": "ui/pixel_ui_tiles.png",
+    "uiPanel": "ui/panel_dark.png",
+    "uiButton": "ui/button_dark.png",
+    "ambientAudio": "audio/ambient_forest.mp3",
+    "collectAudio": "audio/collect.ogg",
+    "interactAudio": "audio/ui_click.ogg",
+    "recycleAudio": "audio/recycle.ogg",
+    "errorAudio": "audio/error.ogg",
+    "footstepAudio": "audio/footstep.ogg",
+    "dialogBlipAudio": "audio/dialog_blip.ogg",
+    "uiHoverAudio": "audio/ui_hover.ogg",
+    "levelUpAudio": "audio/level_up.ogg"
+  }
+}

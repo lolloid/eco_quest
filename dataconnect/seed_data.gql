@@ -1,0 +1,136 @@
+mutation CreateSeedData @transaction @auth(level: PUBLIC, insecureReason: "This is seed data and should be publicly available for testing and demonstration purposes.") {
+  user_insertMany(data: [
+    {
+      id: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      username: "ecoUser1",
+      email: "ecoUser1@example.com",
+      role: "player",
+      createdAt: "2023-01-01T10:00:00Z",
+      displayName: "Eco Warrior 1"
+    },
+    {
+      id: "b1fcc123-1111-2222-3333-444455556666",
+      username: "ecoUser2",
+      email: "ecoUser2@example.com",
+      role: "player",
+      createdAt: "2023-01-02T11:00:00Z",
+      displayName: "Nature Lover 2"
+    },
+    {
+      id: "c2gdd456-aaaa-bbbb-cccc-ddddddddddee",
+      username: "teacherUser",
+      email: "teacher@example.com",
+      role: "teacher",
+      createdAt: "2023-01-03T12:00:00Z",
+      displayName: "Ms. Green"
+    }
+  ])
+  subject_insertMany(data: [
+    {
+      id: "e3hhh789-abcd-efab-cdef-1234567890ab",
+      name: "Climate Change",
+      description: "Learn about the causes and effects of climate change.",
+      createdAt: "2023-01-05T09:00:00Z",
+      imageUrl: "https://example.com/climate_change.png"
+    },
+    {
+      id: "f4iii012-1234-5678-90ab-cdef12345678",
+      name: "Biodiversity",
+      description: "Explore the variety of life on Earth and its importance.",
+      createdAt: "2023-01-06T10:00:00Z",
+      imageUrl: "https://example.com/biodiversity.png"
+    }
+  ])
+  quest_insertMany(data: [
+    {
+      id: "g5jjj345-beef-cafe-d00d-1234567890cd",
+      title: "Recycle Right",
+      description: "Learn proper recycling techniques and sort your waste.",
+      difficulty: "easy",
+      rewards: "100 Gold, 10 XP",
+      createdAt: "2023-01-10T14:30:00Z",
+      creatorId: "c2gdd456-aaaa-bbbb-cccc-ddddddddddee",
+      subjectId: "e3hhh789-abcd-efab-cdef-1234567890ab",
+      completionCriteria: "Recycle 3 different items correctly.",
+      dueDate: "2023-01-17"
+    },
+    {
+      id: "h6kkk678-abcd-efab-cdef-1234567890ef",
+      title: "Water Conservation Challenge",
+      description: "Track your water usage for a week and find ways to save.",
+      difficulty: "medium",
+      rewards: "250 Gold, 25 XP",
+      createdAt: "2023-01-12T16:00:00Z",
+      creatorId: "c2gdd456-aaaa-bbbb-cccc-ddddddddddee",
+      subjectId: "e3hhh789-abcd-efab-cdef-1234567890ab",
+      completionCriteria: "Reduce daily water usage by 10%.",
+      dueDate: "2023-01-26"
+    }
+  ])
+  character_insertMany(data: [
+    {
+      id: "i7lll901-abcd-efab-cdef-1234567890fg",
+      userId: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      characterName: "LeafyGreen",
+      characterClass: "Druid",
+      level: 5,
+      experiencePoints: 1200,
+      gold: 500,
+      health: 80,
+      mana: 100,
+      strength: 10,
+      intelligence: 18,
+      agility: 12,
+      createdAt: "2023-01-01T10:05:00Z"
+    },
+    {
+      id: "j8mmm234-abcd-efab-cdef-1234567890hi",
+      userId: "b1fcc123-1111-2222-3333-444455556666",
+      characterName: "RiverRunner",
+      characterClass: "Ranger",
+      level: 4,
+      experiencePoints: 900,
+      gold: 350,
+      health: 70,
+      mana: 50,
+      strength: 14,
+      intelligence: 10,
+      agility: 16,
+      createdAt: "2023-01-02T11:05:00Z"
+    }
+  ])
+  inventoryItem_insertMany(data: [
+    {
+      id: "k9nnn567-abcd-efab-cdef-1234567890jk",
+      characterId: "i7lll901-abcd-efab-cdef-1234567890fg",
+      itemName: "Compost Bin",
+      itemType: "tool",
+      quantity: 1,
+      createdAt: "2023-01-15T10:00:00Z",
+      description: "A magical bin that turns waste into rich soil.",
+      effects: "Boosts plant growth."
+    },
+    {
+      id: "l0ooo890-abcd-efab-cdef-1234567890lm",
+      characterId: "j8mmm234-abcd-efab-cdef-1234567890hi",
+      itemName: "Reusable Water Bottle",
+      itemType: "utility",
+      quantity: 1,
+      createdAt: "2023-01-15T10:00:00Z",
+      description: "Holds refreshing water for long journeys.",
+      effects: "Prevents plastic waste."
+    }
+  ])
+  questSubmission_insertMany(data: [
+    {
+      id: "m1ppp123-abcd-efab-cdef-1234567890no",
+      userId: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      questId: "g5jjj345-beef-cafe-d00d-1234567890cd",
+      status: "completed",
+      submittedAt: "2023-01-16T18:00:00Z",
+      score: 95,
+      answers: "Plastic bottle, Glass jar, Cardboard box",
+      teacherFeedback: "Excellent work on sorting!"
+    }
+  ])
+}

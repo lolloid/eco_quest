@@ -1,0 +1,51 @@
+mutation CreateUser($username: String!, $email: String!, $displayName: String, $avatarUrl: String) @auth(level: PUBLIC, insecureReason: "This mutation is for creating new users and does not expose sensitive data without authentication.") {
+  user_insert(data: {
+    username: $username,
+    email: $email,
+    createdAt_expr: "request.time",
+    displayName: $displayName,
+    avatarUrl: $avatarUrl,
+    role: "player"
+  })
+}
+
+mutation CreateCharacter($characterName: String!, $characterClass: String!, $health: Int, $mana: Int, $strength: Int, $intelligence: Int, $agility: Int) @auth(level: USER, insecureReason: "This operation creates a character for the authenticated user and does not expose other user's data.") {
+  character_insert(data: {
+    user: { id_expr: "auth.uid" },
+    characterName: $characterName,
+    characterClass: $characterClass,
+    level: 1,
+    experiencePoints: 0,
+    gold: 100,
+    createdAt_expr: "request.time",
+    health: $health,
+    mana: $mana,
+    strength: $strength,
+    intelligence: $intelligence,
+    agility: $agility
+  })
+}
+
+query ListAllQuests @auth(level: PUBLIC, insecureReason: "This query lists quests for public viewing, no sensitive data is exposed.") {
+  quests {
+    id
+    title
+    description
+    difficulty
+    rewards
+    dueDate
+    subject {
+      name
+    }
+  }
+}
+
+mutation SubmitQuest($questId: UUID!, $answers: String!) @auth(level: USER, insecureReason: "This mutation allows authenticated users to submit quests for their own user ID.") {
+  questSubmission_insert(data: {
+    user: { id_expr: "auth.uid" },
+    quest: { id: $questId },
+    status: "submitted",
+    submittedAt_expr: "request.time",
+    answers: $answers
+  })
+}

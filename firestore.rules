@@ -1,0 +1,95 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isSelf(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+
+    match /users/{userId} {
+      allow read: if isSelf(userId) || isAdmin();
+      allow create: if isSelf(userId);
+      allow update, delete: if false;
+
+      match /questProgress/{docId} {
+        allow read: if isSelf(userId) || isAdmin();
+        allow write: if false;
+      }
+
+      match /inventory/{docId} {
+        allow read: if isSelf(userId) || isAdmin();
+        allow write: if false;
+      }
+
+      match /achievements/{docId} {
+        allow read: if isSelf(userId) || isAdmin();
+        allow write: if false;
+      }
+
+      match /articleProgress/{docId} {
+        allow read: if isSelf(userId) || isAdmin();
+        allow write: if false;
+      }
+
+      match /worldAreas/{docId} {
+        allow read: if isSelf(userId) || isAdmin();
+        allow write: if false;
+      }
+
+      match /conversations/{conversationId} {
+        allow read: if isSelf(userId) || isAdmin();
+        allow write: if false;
+
+        match /messages/{messageId} {
+          allow read: if isSelf(userId) || isAdmin();
+          allow write: if false;
+        }
+      }
+    }
+
+    match /quests/{questId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /articles/{articleId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    match /quizzes/{quizId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /npcs/{npcId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /achievements/{achievementId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /gameEvents/{eventId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /analyticsDaily/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+# dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+
+# testing
+coverage/
+
+# environment and secrets
+.env
+.env.*
+!.env.example
+serviceAccountKey.json
+serviceAccountKey*.json
+*.pem
+*.key
+
+# firebase local/cache files
+.firebase/
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# vercel
+.vercel/
+
+# local logs
+*.log
+.tmp-*.log
+dev-server*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Codex/local agent metadata
+.agents/
+skills-lock.json
+
+# downloaded source archives/raw packs; curated runtime assets stay committed
+public/assets/pixel/professional/_downloads/
+
+# typescript
+*.tsbuildinfo

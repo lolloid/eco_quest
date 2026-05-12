@@ -1,0 +1,48 @@
+import { ACTIONS } from "./actions";
+
+export const DEFAULT_ACHIEVEMENTS = [
+  {
+    id: "collector_bronze",
+    title: "Kolektor Pemula",
+    description: "Kumpulkan 10 sampah.",
+    action: ACTIONS.COLLECT_TRASH,
+    stat: "trashCollected",
+    target: 10,
+    rarity: "common",
+    badge: "Kolektor Pemula",
+    reward: { ecoPoints: 25, xp: 25 },
+  },
+  {
+    id: "collector_gold",
+    title: "Kolektor Master",
+    description: "Kumpulkan 100 sampah.",
+    action: ACTIONS.COLLECT_TRASH,
+    stat: "trashCollected",
+    target: 100,
+    rarity: "rare",
+    badge: "Kolektor Master",
+    reward: { ecoPoints: 100, xp: 100 },
+  },
+  {
+    id: "eco_reader",
+    title: "Eco Scholar",
+    description: "Selesaikan 5 artikel edukasi.",
+    action: ACTIONS.READ_ARTICLE,
+    stat: "articlesRead",
+    target: 5,
+    rarity: "common",
+    badge: "Eco Scholar",
+    reward: { ecoPoints: 50, xp: 50 },
+  },
+  {
+    id: "npc_friend",
+    title: "Sahabat Eco NPC",
+    description: "Bicara dengan NPC 5 kali.",
+    action: ACTIONS.TALK_NPC,
+    stat: "npcTalks",
+    target: 5,
+    rarity: "common",
+    badge: "Sahabat Eco NPC",
+    reward: { ecoPoints: 30, xp: 30 },
+  },
+];

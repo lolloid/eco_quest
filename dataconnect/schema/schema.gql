@@ -1,0 +1,63 @@
+type User @table {
+  username: String!
+  email: String!
+  role: String!
+  createdAt: Timestamp!
+  displayName: String
+  avatarUrl: String
+  lastLogin: Timestamp
+}
+
+type Character @table {
+  user: User!
+  characterName: String!
+  characterClass: String!
+  level: Int!
+  experiencePoints: Int!
+  gold: Int!
+  createdAt: Timestamp!
+  health: Int
+  mana: Int
+  strength: Int
+  intelligence: Int
+  agility: Int
+}
+
+type Subject @table {
+  name: String!
+  description: String!
+  createdAt: Timestamp!
+  imageUrl: String
+}
+
+type Quest @table {
+  title: String!
+  description: String!
+  difficulty: String!
+  rewards: String!
+  createdAt: Timestamp!
+  creator: User
+  subject: Subject
+  completionCriteria: String
+  dueDate: Date
+}
+
+type QuestSubmission @table {
+  user: User!
+  quest: Quest!
+  status: String!
+  submittedAt: Timestamp!
+  score: Int
+  answers: String
+  teacherFeedback: String
+}
+
+type InventoryItem @table {
+  character: Character!
+  itemName: String!
+  itemType: String!
+  quantity: Int!
+  createdAt: Timestamp!
+  description: String
+  effects: String
+}

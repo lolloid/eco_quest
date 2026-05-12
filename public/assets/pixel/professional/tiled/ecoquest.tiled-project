@@ -1,0 +1,133 @@
+{
+  "automappingRulesFile": "",
+  "commands": [],
+  "extensionsPath": "extensions",
+  "folders": [
+    ".."
+  ],
+  "propertyTypes": [
+    {
+      "color": "#7dd3fc",
+      "drawFill": true,
+      "id": 1,
+      "members": [
+        {
+          "name": "areaId",
+          "propertyType": "string",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "cleanlinessTarget",
+          "type": "int",
+          "value": 100
+        }
+      ],
+      "name": "EcoQuestArea",
+      "type": "class",
+      "useAs": [
+        "object"
+      ]
+    },
+    {
+      "color": "#86efac",
+      "drawFill": true,
+      "id": 2,
+      "members": [
+        {
+          "name": "variant",
+          "propertyType": "string",
+          "type": "string",
+          "value": "plastic_bottle"
+        },
+        {
+          "name": "trashType",
+          "propertyType": "string",
+          "type": "string",
+          "value": "plastic"
+        },
+        {
+          "name": "areaId",
+          "propertyType": "string",
+          "type": "string",
+          "value": "recycling"
+        },
+        {
+          "name": "rarity",
+          "propertyType": "string",
+          "type": "string",
+          "value": "common"
+        }
+      ],
+      "name": "EcoQuestTrash",
+      "type": "class",
+      "useAs": [
+        "object"
+      ]
+    },
+    {
+      "color": "#fbbf24",
+      "drawFill": true,
+      "id": 3,
+      "members": [
+        {
+          "name": "npcId",
+          "propertyType": "string",
+          "type": "string",
+          "value": "prof_eco"
+        },
+        {
+          "name": "areaId",
+          "propertyType": "string",
+          "type": "string",
+          "value": "recycling"
+        },
+        {
+          "name": "frame",
+          "type": "int",
+          "value": 0
+        }
+      ],
+      "name": "EcoQuestNPC",
+      "type": "class",
+      "useAs": [
+        "object"
+      ]
+    },
+    {
+      "color": "#c084fc",
+      "drawFill": true,
+      "id": 4,
+      "members": [
+        {
+          "name": "stationId",
+          "propertyType": "string",
+          "type": "string",
+          "value": "eco_center"
+        },
+        {
+          "name": "areaId",
+          "propertyType": "string",
+          "type": "string",
+          "value": "recycling"
+        },
+        {
+          "name": "frame",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "name": "accepts",
+          "propertyType": "string",
+          "type": "string",
+          "value": "plastic,paper,metal,glass"
+        }
+      ],
+      "name": "EcoQuestStation",
+      "type": "class",
+      "useAs": [
+        "object"
+      ]
+    }
+  ]
+}
