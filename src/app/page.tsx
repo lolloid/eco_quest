@@ -396,9 +396,6 @@ export default function LandingPage() {
             <Link href={isLoggedIn ? "/game" : "/register"} className="pixel-launch-button pixel-launch-button-primary">
               {isLoggedIn ? "Masuk ke Eco World" : "Daftar EcoWarrior"}
             </Link>
-            <Link href="/#about" className="pixel-launch-button pixel-launch-button-secondary">
-              Tentang EcoQuest
-            </Link>
           </div>
         </Reveal>
       </section>

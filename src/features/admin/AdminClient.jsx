@@ -24,6 +24,7 @@ export function AdminShell({ title, children }) {
   const pathname = usePathname();
   const router = useRouter();
   const adminEmail = auth.currentUser?.email || "admin console";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -59,11 +60,62 @@ export function AdminShell({ title, children }) {
             <em>{adminEmail}</em>
           </div>
 
-          <button type="button" className="admin-logout-button" onClick={handleLogout}>
-            <PixelIcon type="logout" className="is-tiny" />
-            <span>Logout</span>
-          </button>
+          <div className="admin-command-actions">
+            <button
+              type="button"
+              className={`admin-menu-toggle ${menuOpen ? "is-open" : ""}`}
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label="Buka menu admin"
+              aria-expanded={menuOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+
+            <button type="button" className="admin-logout-button" onClick={handleLogout}>
+              <PixelIcon type="logout" className="is-tiny" />
+              <span>Logout</span>
+            </button>
+          </div>
         </header>
+
+        <button
+          type="button"
+          className={`admin-mobile-backdrop ${menuOpen ? "is-open" : ""}`}
+          onClick={() => setMenuOpen(false)}
+          aria-label="Tutup menu admin"
+          tabIndex={menuOpen ? 0 : -1}
+        />
+
+        <div className={`admin-mobile-drawer ${menuOpen ? "is-open" : ""}`}>
+          <div className="admin-mobile-drawer-head">
+            <span>ADMIN MENU</span>
+            <button type="button" onClick={() => setMenuOpen(false)} aria-label="Tutup menu admin">
+              x
+            </button>
+          </div>
+          <nav className="admin-mobile-nav-list" aria-label="Mobile admin navigation">
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`admin-nav-item ${active ? "is-active" : ""}`}
+                >
+                  <PixelIcon type={item.icon} className="is-tiny" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+            <button type="button" className="admin-mobile-logout" onClick={handleLogout}>
+              <PixelIcon type="logout" className="is-tiny" />
+              <span>Logout</span>
+            </button>
+          </nav>
+        </div>
 
         <div className="admin-layout-grid">
           <aside className="admin-sidebar">
