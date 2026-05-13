@@ -12,7 +12,7 @@ export const NPC_DEFINITIONS = {
     portrait: "🔬",
     dialog: [
       {
-        message: "Selamat datang di EcoQuest, penjaga lingkungan! Dunia ini butuh bantuanmu.",
+        message: "Selamat datang di PixelTerra, penjaga lingkungan! Dunia ini butuh bantuanmu.",
         quest: null,
       },
       {
@@ -165,7 +165,7 @@ export const NPC_DEFINITIONS = {
 
 export const DEFAULT_DIALOG = {
   name: "Warga",
-  role: "Warga EcoQuest",
+  role: "Warga PixelTerra",
   portrait: "🏘️",
   dialog: [
     {

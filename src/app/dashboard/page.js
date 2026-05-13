@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../layout";
+import { useAuth } from "@/lib/AuthContext";
 import DashboardStats from "@/components/DashboardStats";
 import DailyMission from "@/components/DailyMission";
 import Leaderboard from "@/components/Leaderboard";

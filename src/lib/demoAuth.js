@@ -6,7 +6,7 @@ export const DEMO_PROFILE = {
   uid: DEMO_USER_ID,
   id: DEMO_USER_ID,
   displayName: "Demo EcoWarrior",
-  email: "demo@ecoquest.local",
+  email: "demo@pixelterra.local",
   totalEcoPoints: 1250,
   currentXP: 80,
   level: 5,

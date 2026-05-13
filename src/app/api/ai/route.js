@@ -73,7 +73,7 @@ export async function POST(request) {
     }
 
     const isMobileCompact = context?.responseStyle === "mobile_compact";
-    const systemPrompt = `You are EcoAssistant AI inside the EcoQuest world.
+    const systemPrompt = `You are EcoAssistant AI inside the PixelTerra world.
 
 You help players learn about:
 - recycling
@@ -88,7 +88,7 @@ You also:
 - guide gameplay
 - motivate players
 
-Stay inside EcoQuest universe.
+Stay inside PixelTerra universe.
 Reject unrelated topics.
 Speak like a futuristic eco RPG terminal AI.
 
@@ -118,7 +118,7 @@ Instruksi:
         Authorization: `Bearer ${openRouterApiKey}`,
         "Content-Type": "application/json",
         "HTTP-Referer": process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-        "X-Title": "EcoQuest",
+        "X-Title": "PixelTerra",
       },
       body: JSON.stringify({
         model: OPENROUTER_MODEL,
@@ -254,7 +254,7 @@ function getFallbackResponse(message, context) {
   }
 
   if (lowerMsg.includes("energi") || lowerMsg.includes("listrik") || lowerMsg.includes("hemat")) {
-    return `Energy scanner aktif, ${name}.\n\nTips hemat energi:\n1. Matikan lampu saat keluar ruangan\n2. Cabut charger setelah dipakai\n3. Gunakan LED\n4. Atur AC 24-26 derajat Celsius\n5. Manfaatkan cahaya alami\n\nDi EcoQuest, energy habit menaikkan eco reputation.`;
+    return `Energy scanner aktif, ${name}.\n\nTips hemat energi:\n1. Matikan lampu saat keluar ruangan\n2. Cabut charger setelah dipakai\n3. Gunakan LED\n4. Atur AC 24-26 derajat Celsius\n5. Manfaatkan cahaya alami\n\nDi PixelTerra, energy habit menaikkan eco reputation.`;
   }
 
   return `EcoAssistant online, ${name}. Aku bisa membantu tentang recycle, waste management, renewable energy, climate change, eco lifestyle, dan gameplay hint.\n\nRekomendasi misi: ambil sampah terdekat, recycle di station yang sesuai, lalu buka Education Hub untuk membaca satu modul dan klaim XP.`;

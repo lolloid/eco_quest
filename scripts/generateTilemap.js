@@ -34,7 +34,7 @@ function summarizeMap() {
   );
 
   console.log("");
-  console.log("EcoQuest handcrafted tilemap generated.");
+  console.log("PixelTerra handcrafted tilemap generated.");
   console.log(`Map: ${map.width}x${map.height} tiles (${map.width * map.tilewidth}x${map.height * map.tileheight}px)`);
   console.log(`Tile size: ${map.tilewidth}x${map.tileheight}`);
   console.log(`Layers: ${map.layers.length}`);

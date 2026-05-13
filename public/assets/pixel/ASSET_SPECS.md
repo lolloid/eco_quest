@@ -1,4 +1,4 @@
-# 🌿 SPESIFIKASI ASSET PIXEL ART — EcoQuest
+# 🌿 SPESIFIKASI ASSET PIXEL ART — PixelTerra
 
 ## 📁 File: `public/assets/pixel/character/hero.png`
 
@@ -46,7 +46,7 @@ Row 3 (y=96):   Walk Up    — Frame 0, 1, 2, 3
 ## 📁 File: `public/assets/pixel/tilesets/tileset_kota.png`
 
 ### Deskripsi
-Tileset untuk peta kota EcoQuest, berisi tile dasar untuk environment.
+Tileset untuk peta kota PixelTerra, berisi tile dasar untuk environment.
 
 ### Spesifikasi
 - **Dimensi total**: 128 x 64 piksel

@@ -14,7 +14,7 @@ const directories = [
   "effects",
 ];
 
-const readme = `# EcoQuest Professional Game Assets
+const readme = `# PixelTerra Professional Game Assets
 
 Place licensed professional pixel-art assets in this directory.
 

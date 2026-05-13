@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../layout";
+import { useAuth } from "@/lib/AuthContext";
 import PixelIcon from "@/components/ui/PixelIcon";
 
 export default function AdminLayout({ children }) {

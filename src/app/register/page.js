@@ -147,7 +147,7 @@ export default function RegisterPage() {
             onChange={(event) => setAcceptedTerms(event.target.checked)}
           />
           <span />
-          Saya menyetujui syarat & ketentuan EcoQuest
+          Saya menyetujui syarat & ketentuan PixelTerra
         </label>
 
         <button type="submit" disabled={loading} className="auth-primary-button">

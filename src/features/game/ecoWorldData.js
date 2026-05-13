@@ -113,7 +113,7 @@ export const NPC_DIALOGS = {
 };
 
 export const DEFAULT_DIALOG = {
-  role: "Warga EcoQuest",
+  role: "Warga PixelTerra",
   portrait: "EQ",
   message: "Terima kasih sudah menjaga lingkungan ini.",
   quest: "Quest: Lanjutkan eksplorasi.",

@@ -1,17 +1,9 @@
 "use client";
 
 import "./globals.css";
-import { useState, useEffect, createContext, useContext } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { getUserProfile } from "@/lib/firestore";
-import {
-  DEMO_PROFILE,
-  DEMO_STORAGE_KEY,
-  DEMO_USER,
-  isDemoAuthEnabled,
-  isDemoUser,
-} from "@/lib/demoAuth";
 import { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -19,97 +11,7 @@ import PixelIcon from "@/components/ui/PixelIcon";
 import { clearSessionCookie } from "@/lib/authSession";
 import { getXPProgressPercent } from "@/lib/gameLogic";
 import toast from "react-hot-toast";
-
-const AuthContext = createContext(null);
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
-
-function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (
-      isDemoAuthEnabled() &&
-      typeof window !== "undefined" &&
-      window.localStorage.getItem(DEMO_STORAGE_KEY) === "true"
-    ) {
-      setUser(DEMO_USER);
-      setProfile(DEMO_PROFILE);
-      setLoading(false);
-      return undefined;
-    }
-
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        try {
-          const userProfile = await getUserProfile(firebaseUser.uid);
-          setProfile(userProfile);
-        } catch (err) {
-          console.error("Failed to load profile:", err);
-        }
-      } else {
-        setUser(null);
-        setProfile(null);
-      }
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const refreshProfile = async () => {
-    if (isDemoUser(user)) {
-      setProfile(DEMO_PROFILE);
-      return DEMO_PROFILE;
-    }
-
-    if (user) {
-      const userProfile = await getUserProfile(user.uid);
-      setProfile(userProfile);
-      return userProfile;
-    }
-
-    return null;
-  };
-
-  const startDemoSession = () => {
-    if (!isDemoAuthEnabled() || typeof window === "undefined") return false;
-    window.localStorage.setItem(DEMO_STORAGE_KEY, "true");
-    setUser(DEMO_USER);
-    setProfile(DEMO_PROFILE);
-    setLoading(false);
-    return true;
-  };
-
-  const endDemoSession = () => {
-    if (typeof window !== "undefined") {
-      window.localStorage.removeItem(DEMO_STORAGE_KEY);
-    }
-    setUser(null);
-    setProfile(null);
-  };
-
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-        profile,
-        loading,
-        refreshProfile,
-        startDemoSession,
-        endDemoSession,
-        isDemo: isDemoUser(user),
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
-}
+import { AuthProvider, useAuth } from "@/lib/AuthContext";
 
 function EcoNavbar() {
   const authContext = useAuth();
@@ -187,10 +89,10 @@ function EcoNavbar() {
         <div className="hud-corner hud-corner-right" />
         <div className="hud-navbar-inner">
           <div className="hud-left">
-            <Link href="/" className="hud-brand" aria-label="EcoQuest Home">
+            <Link href="/" className="hud-brand" aria-label="PixelTerra Home">
               <PixelIcon type="leaf" className="is-nav eco-logo-pixel" />
               <span>
-                <strong>EcoQuest</strong>
+                <strong>PixelTerra</strong>
               </span>
             </Link>
             <div className="hud-player-status">
@@ -336,9 +238,9 @@ function EcoNavbar() {
         <div className="eco-navbar-grid" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="eco-navbar-inner">
-            <Link href="/" className="eco-navbar-logo" aria-label="EcoQuest Home">
+            <Link href="/" className="eco-navbar-logo" aria-label="PixelTerra Home">
               <PixelIcon type="leaf" className="is-nav eco-logo-pixel" />
-              <span className="eco-logo-text">EcoQuest</span>
+              <span className="eco-logo-text">PixelTerra</span>
             </Link>
 
             <div className="eco-navbar-menu" aria-label="Public navigation">
@@ -417,10 +319,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <head>
-        <title>EcoQuest - Gamifikasi RPG Edukasi Lingkungan</title>
+        <title>PixelTerra - Gamifikasi RPG Edukasi Lingkungan</title>
         <meta
           name="description"
-          content="EcoQuest adalah platform gamifikasi RPG pixel art untuk edukasi lingkungan. Kumpulkan sampah, selesaikan misi, dan selamatkan bumi."
+          content="PixelTerra adalah platform gamifikasi RPG pixel art untuk edukasi lingkungan. Kumpulkan sampah, selesaikan misi, dan selamatkan bumi."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link

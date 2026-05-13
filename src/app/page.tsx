@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import PixelIcon from "@/components/ui/PixelIcon";
-import { useAuth } from "./layout";
+import { useAuth } from "@/lib/AuthContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -229,7 +229,7 @@ export default function LandingPage() {
   if (!mounted) return null;
 
   return (
-    <div className="ecoquest-landing">
+    <div className="pixelterra-landing">
       <section id="home" className="landing-hero">
         <PixelLandscape />
         <div className="landing-hero-overlay" />
@@ -246,7 +246,7 @@ export default function LandingPage() {
           </div>
 
           <h1 className="landing-title">
-            ECO<span>QUEST</span>
+            PIXEL<span>TERRA</span>
           </h1>
           <p className="landing-subtitle">Selamatkan bumi, satu misi pada satu waktu</p>
           <p className="landing-description">
@@ -329,7 +329,7 @@ export default function LandingPage() {
             <span className="pixel-kicker">Game Ecosystem</span>
             <h2>Fitur Utama</h2>
             <p>
-              EcoQuest dirancang seperti portal RPG, bukan dashboard biasa:
+              PixelTerra dirancang seperti portal RPG, bukan dashboard biasa:
               semua progres belajar dan aksi hijau terasa seperti petualangan.
             </p>
           </Reveal>
@@ -402,10 +402,10 @@ export default function LandingPage() {
 
       <footer className="landing-footer landing-terminal-footer">
         <div className="terminal-brand">
-          <strong>EcoQuest</strong>
+          <strong>PixelTerra</strong>
           <span>Modern eco pixel RPG learning platform</span>
         </div>
-        <div className="terminal-status-grid" aria-label="EcoQuest system status">
+        <div className="terminal-status-grid" aria-label="PixelTerra system status">
           <span><b>SYSTEM</b> ONLINE</span>
           <span><b>CLEANLINESS</b> 68%</span>
           <span><b>ECOWARRIORS</b> 10K+</span>

@@ -45,7 +45,7 @@ export default function EcoAssistant({ profile }) {
     {
       role: "assistant",
       content:
-        "EcoAssistant online. Aku bisa membantu misi lingkungan, recycle, climate, eco lifestyle, dan hint gameplay EcoQuest.",
+        "EcoAssistant online. Aku bisa membantu misi lingkungan, recycle, climate, eco lifestyle, dan hint gameplay PixelTerra.",
     },
   ]);
   const [input, setInput] = useState("");

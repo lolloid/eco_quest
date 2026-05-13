@@ -23,7 +23,7 @@
           "value": 100
         }
       ],
-      "name": "EcoQuestArea",
+      "name": "PixelTerraArea",
       "type": "class",
       "useAs": [
         "object"
@@ -59,7 +59,7 @@
           "value": "common"
         }
       ],
-      "name": "EcoQuestTrash",
+      "name": "PixelTerraTrash",
       "type": "class",
       "useAs": [
         "object"
@@ -88,7 +88,7 @@
           "value": 0
         }
       ],
-      "name": "EcoQuestNPC",
+      "name": "PixelTerraNPC",
       "type": "class",
       "useAs": [
         "object"
@@ -123,7 +123,7 @@
           "value": "plastic,paper,metal,glass"
         }
       ],
-      "name": "EcoQuestStation",
+      "name": "PixelTerraStation",
       "type": "class",
       "useAs": [
         "object"

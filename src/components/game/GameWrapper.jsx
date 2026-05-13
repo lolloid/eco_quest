@@ -624,7 +624,7 @@ export default function GameWrapper({ userId, profile }) {
             <div className="mb-4 flex justify-center animate-bounce">
               <PixelIcon type="leaf" className="is-large" />
             </div>
-            <p className="font-pixel text-xs text-emerald-400 animate-pulse">Loading EcoQuest...</p>
+            <p className="font-pixel text-xs text-emerald-400 animate-pulse">Loading PixelTerra...</p>
           </div>
         </div>
       )}

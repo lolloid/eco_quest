@@ -52,7 +52,7 @@ export default class BootScene extends Phaser.Scene {
 
     // Title text
     this.add
-      .text(cx, cy - 40, "ECOQUEST", {
+      .text(cx, cy - 40, "PIXELTERRA", {
         fontFamily: '"Press Start 2P", monospace',
         fontSize: "16px",
         color: "#34d399",

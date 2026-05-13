@@ -1691,7 +1691,7 @@
   }
 }
 
-/* ========== ECOQUEST AUTH LAUNCHER ========== */
+/* ========== PIXELTERRA AUTH LAUNCHER ========== */
 .auth-page {
   position: relative;
   min-height: calc(100svh - 72px);
@@ -2741,8 +2741,8 @@
   animation: pixelLoad 2s ease-in-out infinite;
 }
 
-/* ========== ECOQUEST CINEMATIC LANDING ========== */
-.ecoquest-landing {
+/* ========== PIXELTERRA CINEMATIC LANDING ========== */
+.pixelterra-landing {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -2753,7 +2753,7 @@
     linear-gradient(180deg, #020617 0%, #071126 42%, #081423 68%, #03130c 100%);
 }
 
-.ecoquest-landing::before {
+.pixelterra-landing::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -2767,7 +2767,7 @@
   mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
 }
 
-.ecoquest-landing::after {
+.pixelterra-landing::after {
   content: "";
   position: fixed;
   inset: 0;
@@ -2836,7 +2836,7 @@
 .landing-title {
   margin-top: 1.6rem;
   font-family: "Press Start 2P", monospace;
-  font-size: 5.2rem;
+  font-size: clamp(3rem, 7vw, 5.2rem);
   line-height: 1.25;
   color: #d1fae5;
   text-shadow:
@@ -3577,7 +3577,11 @@
   }
 
   .landing-title {
-    font-size: 2.25rem;
+    font-size: 1.9rem;
+    line-height: 1.35;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: normal;
   }
 
   .landing-subtitle {
@@ -5987,6 +5991,20 @@ button:active,
     font-size: 0.92rem;
   }
 
+  .landing-title {
+    font-size: 1.72rem;
+    line-height: 1.42;
+    text-shadow:
+      0 3px 0 #064e3b,
+      0 6px 0 #022c22,
+      0 0 24px rgba(52, 211, 153, 0.58);
+  }
+
+  .landing-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
   .eco-navbar-toggle {
     width: 40px;
     height: 40px;
@@ -6295,6 +6313,14 @@ button:active,
   .auth-card-register .auth-primary-button,
   .auth-card-register .auth-secondary-button {
     font-size: 0.5rem;
+  }
+
+  .eco-logo-text {
+    font-size: 0.78rem;
+  }
+
+  .landing-title {
+    font-size: 1.45rem;
   }
 
   .admin-content-panel > .grid {

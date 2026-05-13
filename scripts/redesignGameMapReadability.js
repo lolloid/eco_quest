@@ -614,7 +614,7 @@ improveTileset();
 outlineSprites(trashPath, trashBasePath, 32);
 improveTilemap();
 
-console.log("EcoQuest game map readability redesign applied.");
+console.log("PixelTerra game map readability redesign applied.");
 console.log("- Roads widened and separated from grass");
 console.log("- Trash/NPC/station tiles highlighted with glow and shadows");
 console.log("- Grass/path/water tilesets recolored for stronger contrast");

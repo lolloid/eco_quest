@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../layout";
+import { useAuth } from "@/lib/AuthContext";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import PixelIcon from "@/components/ui/PixelIcon";
@@ -15,7 +15,7 @@ const GameWrapper = dynamic(() => import("@/components/game/GameWrapper"), {
         <div className="mb-4 flex justify-center animate-bounce">
           <PixelIcon type="leaf" className="is-large" />
         </div>
-        <p className="font-pixel text-xs text-eco-400 animate-pulse">Loading EcoQuest...</p>
+        <p className="font-pixel text-xs text-eco-400 animate-pulse">Loading PixelTerra...</p>
         <p className="text-gray-500 text-[10px] mt-2">Mempersiapkan Eco World</p>
       </div>
     </div>

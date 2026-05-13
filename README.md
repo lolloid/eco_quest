@@ -1,6 +1,6 @@
-# EcoQuest
+# PixelTerra
 
-EcoQuest adalah platform edukasi lingkungan berbasis gamifikasi dengan nuansa modern eco pixel RPG. Aplikasi ini menggabungkan landing page interaktif, autentikasi Firebase, dashboard pemain, gameplay Phaser, quest, leaderboard, Education Hub, recycle system, dan EcoAssistant AI.
+PixelTerra adalah platform edukasi lingkungan berbasis gamifikasi dengan nuansa modern eco pixel RPG. Aplikasi ini menggabungkan landing page interaktif, autentikasi Firebase, dashboard pemain, gameplay Phaser, quest, leaderboard, Education Hub, recycle system, dan EcoAssistant AI.
 
 ## Tech Stack
 
@@ -198,14 +198,14 @@ Admin console memakai layout sendiri, terpisah dari navbar public dan user dashb
 
 ## Akun Demo / Dummy
 
-EcoQuest tidak menyimpan password dummy hardcoded di repository. Untuk testing cepat, gunakan **Mode Demo** di halaman login.
+PixelTerra tidak menyimpan password dummy hardcoded di repository. Untuk testing cepat, gunakan **Mode Demo** di halaman login.
 
 ### Mode Demo Development
 
 | Field | Nilai |
 |---|---|
 | Nama profil | `Demo EcoWarrior` |
-| Email profil | `demo@ecoquest.local` |
+| Email profil | `demo@pixelterra.local` |
 | Role | `user` |
 | Cara masuk | Klik tombol `Masuk Mode Demo` di halaman `/login` |
 | Password | Tidak ada, mode demo memakai session development lokal |
@@ -224,7 +224,7 @@ Script `npm run seed` membuat dokumen user contoh di Firestore:
 |---|---|
 | UID | `demo_user_001` |
 | Display name | `DemoWarrior` |
-| Email | `demo@ecoquest.id` |
+| Email | `demo@pixelterra.id` |
 | Role | user/default |
 
 Catatan penting: data ini **bukan akun Firebase Authentication**, jadi tidak bisa login langsung memakai email tersebut. Ini hanya dokumen contoh untuk leaderboard/profile/testing data.
@@ -299,7 +299,7 @@ ecoquest/
 | `/login` | Login user |
 | `/register` | Register user |
 | `/dashboard` | Dashboard pemain |
-| `/game` | Gameplay EcoQuest |
+| `/game` | Gameplay PixelTerra |
 | `/education` | Education Hub |
 | `/admin` | Admin control console, hanya untuk role admin |
 | `/unauthorized` | Halaman akses ditolak untuk user non-admin |
@@ -384,7 +384,7 @@ AI dibatasi untuk topik:
 - climate change
 - energi
 - eco lifestyle
-- gameplay hint EcoQuest
+- gameplay hint PixelTerra
 
 Jika `OPENROUTER_API_KEY` tidak tersedia, sistem akan memakai fallback response lokal.
 
@@ -464,7 +464,7 @@ public/assets/pixel/professional/objects/stations.png
 
 ## Catatan Pengembangan
 
-EcoQuest sudah memiliki basis MVP yang cukup lengkap untuk lomba/prototype production-ready. Untuk kualitas game komersial penuh, area yang masih bisa ditingkatkan:
+PixelTerra sudah memiliki basis MVP yang cukup lengkap untuk lomba/prototype production-ready. Untuk kualitas game komersial penuh, area yang masih bisa ditingkatkan:
 
 - remap manual di Tiled untuk kualitas map lebih natural
 - sprite karakter/NPC custom original

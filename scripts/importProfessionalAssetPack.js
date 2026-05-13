@@ -55,7 +55,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`EcoQuest professional asset importer
+  console.log(`PixelTerra professional asset importer
 
 Usage:
   npm run import:professional-assets -- --source "C:/path/to/asset-pack"

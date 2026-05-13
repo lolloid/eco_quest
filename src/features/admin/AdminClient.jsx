@@ -46,10 +46,10 @@ export function AdminShell({ title, children }) {
       <div className="admin-console-bg" aria-hidden="true" />
       <div className="admin-console-wrap">
         <header className="admin-command-bar">
-          <Link href="/admin" className="admin-brand" aria-label="EcoQuest Admin Overview">
+          <Link href="/admin" className="admin-brand" aria-label="PixelTerra Admin Overview">
             <PixelIcon type="shield" className="is-nav" />
             <span>
-              <strong>EcoQuest</strong>
+              <strong>PixelTerra</strong>
               <small>Admin Control</small>
             </span>
           </Link>
@@ -145,7 +145,7 @@ export function AdminShell({ title, children }) {
               <div>
                 <span className="admin-kicker">OPERATION CENTER</span>
                 <h1>{title}</h1>
-                <p>Kelola konten, pemain, quest, edukasi, dan keamanan EcoQuest dari satu console.</p>
+                <p>Kelola konten, pemain, quest, edukasi, dan keamanan PixelTerra dari satu console.</p>
               </div>
               <Link href="/dashboard" className="admin-preview-link">
                 <PixelIcon type="rpg" className="is-tiny" />

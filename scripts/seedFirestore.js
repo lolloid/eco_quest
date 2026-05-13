@@ -1,6 +1,6 @@
 /**
  * =============================================
- * EcoQuest - Firestore Seed Script
+ * PixelTerra - Firestore Seed Script
  * =============================================
  *
  * Jalankan: node scripts/seedFirestore.js
@@ -49,7 +49,7 @@ const dailyMissions = [
     id: "mission_1",
     title: "Kumpulkan 5 Sampah di Game",
     description:
-      "Mainkan EcoQuest dan kumpulkan minimal 5 sampah di kota virtual.",
+      "Mainkan PixelTerra dan kumpulkan minimal 5 sampah di kota virtual.",
     reward: 50,
     icon: "🎮",
     type: "game",
@@ -162,7 +162,7 @@ const articles = [
 const sampleUser = {
   uid: "demo_user_001",
   displayName: "DemoWarrior",
-  email: "demo@ecoquest.id",
+  email: "demo@pixelterra.id",
   totalEcoPoints: 350,
   currentXP: 50,
   level: 3,
@@ -209,7 +209,7 @@ async function seedSampleUser() {
 
 async function main() {
   console.log("🌿 =============================================");
-  console.log("🌿 EcoQuest Firestore Seed Script");
+  console.log("🌿 PixelTerra Firestore Seed Script");
   console.log("🌿 =============================================\n");
 
   try {

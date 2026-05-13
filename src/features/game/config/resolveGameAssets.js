@@ -1,9 +1,9 @@
-import { ECOQUEST_ASSET_SLOTS } from "@/features/game/config/professionalAssetManifest";
+import { PIXELTERRA_ASSET_SLOTS } from "@/features/game/config/professionalAssetManifest";
 
 const PROFESSIONAL_ASSET_FLAG = process.env.NEXT_PUBLIC_USE_PROFESSIONAL_GAME_ASSETS === "true";
 
 function resolveSlot(slotName) {
-  const slot = ECOQUEST_ASSET_SLOTS[slotName];
+  const slot = PIXELTERRA_ASSET_SLOTS[slotName];
   if (!slot) return "";
   return PROFESSIONAL_ASSET_FLAG && slot.target ? slot.target : slot.current;
 }

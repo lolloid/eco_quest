@@ -1,4 +1,4 @@
-# EcoQuest Professional Game Assets
+# PixelTerra Professional Game Assets
 
 Place licensed professional pixel-art assets in this directory.
 
@@ -113,4 +113,4 @@ Example manifest:
 }
 ```
 
-The importer copies those files into the required EcoQuest professional asset slots and normalizes the Tiled map tileset reference to `../tilesets/ecoquest_tiles.png`.
+The importer copies those files into the required PixelTerra professional asset slots and normalizes the Tiled map tileset reference to `../tilesets/ecoquest_tiles.png`.

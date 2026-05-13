@@ -889,7 +889,7 @@ function installTiledWorkspace() {
           { name: "areaId", propertyType: "string", type: "string", value: "" },
           { name: "cleanlinessTarget", type: "int", value: 100 },
         ],
-        name: "EcoQuestArea",
+        name: "PixelTerraArea",
         type: "class",
         useAs: ["object"],
       },
@@ -903,7 +903,7 @@ function installTiledWorkspace() {
           { name: "areaId", propertyType: "string", type: "string", value: "recycling" },
           { name: "rarity", propertyType: "string", type: "string", value: "common" },
         ],
-        name: "EcoQuestTrash",
+        name: "PixelTerraTrash",
         type: "class",
         useAs: ["object"],
       },
@@ -916,7 +916,7 @@ function installTiledWorkspace() {
           { name: "areaId", propertyType: "string", type: "string", value: "recycling" },
           { name: "frame", type: "int", value: 0 },
         ],
-        name: "EcoQuestNPC",
+        name: "PixelTerraNPC",
         type: "class",
         useAs: ["object"],
       },
@@ -930,7 +930,7 @@ function installTiledWorkspace() {
           { name: "frame", type: "int", value: 0 },
           { name: "accepts", propertyType: "string", type: "string", value: "plastic,paper,metal,glass" },
         ],
-        name: "EcoQuestStation",
+        name: "PixelTerraStation",
         type: "class",
         useAs: ["object"],
       },
@@ -971,7 +971,7 @@ function installTiledWorkspace() {
   fs.writeFileSync(
     guidePath,
     [
-      "# EcoQuest Handcrafted Map Guide",
+      "# PixelTerra Handcrafted Map Guide",
       "",
       "Open `ecoquest.tiled-project` in Tiled Map Editor, then open `ecoquest.world` or `../maps/eco_world.json`.",
       "",
@@ -1061,7 +1061,7 @@ copyLicense();
 const copiedUiAndAudio = installUiAndAudio();
 installTiledWorkspace();
 
-console.log("Installed CC0 professional EcoQuest assets from Kenney RPG Urban Pack.");
+console.log("Installed CC0 professional PixelTerra assets from Kenney RPG Urban Pack.");
 if (copiedUiAndAudio.length) {
   console.log(`Installed UI/audio assets: ${copiedUiAndAudio.length} files.`);
 }

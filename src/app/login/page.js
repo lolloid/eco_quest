@@ -8,7 +8,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { syncSessionCookie } from "@/lib/authSession";
 import { getUserProfile } from "@/lib/firestore";
-import { useAuth } from "../layout";
+import { useAuth } from "@/lib/AuthContext";
 import { isDemoAuthEnabled } from "@/lib/demoAuth";
 import {
   AuthDivider,
@@ -98,7 +98,7 @@ export default function LoginPage() {
     <AuthShell
       mode="login"
       title="LOGIN"
-      subtitle="Masuk ke terminal EcoQuest dan lanjutkan misi hijau."
+      subtitle="Masuk ke terminal PixelTerra dan lanjutkan misi hijau."
     >
       <form onSubmit={handleLogin} className="auth-form">
         <AuthField

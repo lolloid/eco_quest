@@ -1,4 +1,4 @@
-# EcoQuest Handcrafted Map Guide
+# PixelTerra Handcrafted Map Guide
 
 Open `ecoquest.tiled-project` in Tiled Map Editor, then open `ecoquest.world` or `../maps/eco_world.json`.
 

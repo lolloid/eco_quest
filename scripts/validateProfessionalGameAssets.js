@@ -280,4 +280,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("Professional EcoQuest asset pack validation passed.");
+console.log("Professional PixelTerra asset pack validation passed.");

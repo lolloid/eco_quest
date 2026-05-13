@@ -7,7 +7,7 @@ export const PROFESSIONAL_ASSET_PACKS = [
     bestFor: ["characters", "animals", "tilesets", "ui", "effects", "audio"],
     recommended: true,
     notes:
-      "Best single-pack upgrade path for EcoQuest because it includes top-down tilesets, animated characters, UI, effects, animals, and audio.",
+      "Best single-pack upgrade path for PixelTerra because it includes top-down tilesets, animated characters, UI, effects, animals, and audio.",
   },
   {
     id: "opengameart_outdoor_32",
@@ -38,7 +38,7 @@ export const PROFESSIONAL_ASSET_PACKS = [
   },
 ];
 
-export const ECOQUEST_ASSET_SLOTS = {
+export const PIXELTERRA_ASSET_SLOTS = {
   map: {
     current: "/assets/pixel/ecoquest-pro/maps/eco_world.json",
     target: "/assets/pixel/professional/maps/eco_world.json",
@@ -227,7 +227,7 @@ export const ECOQUEST_ASSET_SLOTS = {
 };
 
 export function getAssetSlot(slot) {
-  return ECOQUEST_ASSET_SLOTS[slot] || null;
+  return PIXELTERRA_ASSET_SLOTS[slot] || null;
 }
 
 export function getRecommendedAssetPack() {

@@ -75,4 +75,4 @@ if (process.exitCode) {
   process.exit(process.exitCode);
 }
 
-console.log("EcoQuest unit architecture assertions passed.");
+console.log("PixelTerra unit architecture assertions passed.");

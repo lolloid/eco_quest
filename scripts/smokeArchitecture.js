@@ -94,4 +94,4 @@ if (failed.length > 0) {
   process.exit(1);
 }
 
-console.log("EcoQuest architecture smoke checks passed.");
+console.log("PixelTerra architecture smoke checks passed.");

@@ -762,4 +762,4 @@ makeStationSprites();
 makeAnimalSprites();
 makeMap();
 
-console.log(`EcoQuest pixel RPG assets generated in ${OUT}`);
+console.log(`PixelTerra pixel RPG assets generated in ${OUT}`);

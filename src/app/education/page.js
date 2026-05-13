@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../layout";
+import { useAuth } from "@/lib/AuthContext";
 import { auth } from "@/lib/firebase";
 import { getClientAuthToken } from "@/lib/demoAuth";
 import Link from "next/link";
