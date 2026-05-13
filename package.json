@@ -10,6 +10,7 @@
     "test": "node scripts/smokeArchitecture.js && node scripts/unitArchitecture.js",
     "seed": "node scripts/seedFirestore.js",
     "seed:architecture": "node scripts/seedArchitecture.js",
+    "admin:set-role": "node scripts/setAdminRole.js",
     "generate:game-assets": "node scripts/generateEcoPixelAssets.js",
     "redesign:game-map": "node scripts/redesignGameMapReadability.js",
     "scaffold:professional-assets": "node scripts/scaffoldProfessionalGameAssets.js",

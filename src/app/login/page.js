@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { syncSessionCookie } from "@/lib/authSession";
+import { getUserProfile } from "@/lib/firestore";
 import { useAuth } from "../layout";
 import { isDemoAuthEnabled } from "@/lib/demoAuth";
 import {
@@ -27,11 +28,12 @@ export default function LoginPage() {
   const router = useRouter();
   const authContext = useAuth();
 
-  const getNextPath = () => {
+  const getNextPath = (profile) => {
     if (typeof window === "undefined") return "/dashboard";
     const params = new URLSearchParams(window.location.search);
     const next = params.get("next");
-    return next && next.startsWith("/") ? next : "/dashboard";
+    if (next && next.startsWith("/")) return next;
+    return profile?.role === "admin" ? "/admin" : "/dashboard";
   };
 
   const handleLogin = async (event) => {
@@ -45,11 +47,12 @@ export default function LoginPage() {
     try {
       const credential = await signInWithEmailAndPassword(auth, email, password);
       await syncSessionCookie(credential.user);
+      const profile = await getUserProfile(credential.user.uid);
       if (remember && typeof window !== "undefined") {
         window.localStorage.setItem("ecoquest_last_email", email);
       }
       toast.success("Login berhasil. Selamat datang kembali, EcoWarrior!");
-      router.push(getNextPath());
+      router.push(getNextPath(profile));
     } catch (err) {
       console.error(err);
       const errorMessages = {

@@ -28,6 +28,7 @@ export async function createUserProfile(uid, data) {
     uid,
     displayName: data.displayName || "EcoWarrior",
     email: data.email,
+    role: "user",
     totalEcoPoints: 0,
     currentXP: 0,
     level: 1,

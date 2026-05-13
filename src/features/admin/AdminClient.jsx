@@ -2,46 +2,107 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { clearSessionCookie } from "@/lib/authSession";
+import PixelIcon from "@/components/ui/PixelIcon";
+import toast from "react-hot-toast";
 
 const navItems = [
-  { href: "/admin", label: "Overview" },
-  { href: "/admin/users", label: "Users" },
-  { href: "/admin/quests", label: "Quests" },
-  { href: "/admin/articles", label: "Articles" },
-  { href: "/admin/npcs", label: "NPCs" },
-  { href: "/admin/quizzes", label: "Quizzes" },
-  { href: "/admin/analytics", label: "Analytics" },
-  { href: "/admin/suspicious", label: "Suspicious" },
+  { href: "/admin", label: "Overview", icon: "dashboard" },
+  { href: "/admin/users", label: "Users", icon: "warrior" },
+  { href: "/admin/quests", label: "Quests", icon: "quest" },
+  { href: "/admin/articles", label: "Articles", icon: "book" },
+  { href: "/admin/npcs", label: "NPCs", icon: "robot" },
+  { href: "/admin/quizzes", label: "Quizzes", icon: "scroll" },
+  { href: "/admin/analytics", label: "Analytics", icon: "rank" },
+  { href: "/admin/suspicious", label: "Suspicious", icon: "shield" },
 ];
 
 export function AdminShell({ title, children }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const adminEmail = auth.currentUser?.email || "admin console";
+
+  const handleLogout = async () => {
+    try {
+      await clearSessionCookie();
+      if (auth.currentUser) {
+        await signOut(auth);
+      }
+      toast.success("Admin logout berhasil.");
+      router.replace("/");
+      router.refresh();
+    } catch (error) {
+      console.error("Admin logout failed:", error);
+      toast.error("Gagal logout admin.");
+    }
+  };
+
   return (
-    <div className="min-h-screen px-4 py-8 max-w-7xl mx-auto">
-      <div className="flex flex-col lg:flex-row gap-6">
-        <aside className="lg:w-56 shrink-0">
-          <div className="glass-card p-4 sticky top-24">
-            <h2 className="font-pixel text-sm text-eco-400 mb-4">ADMIN</h2>
-            <nav className="space-y-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-eco-400 hover:bg-eco-500/10"
-                >
-                  {item.label}
-                </Link>
-              ))}
+    <div className="admin-console-shell min-h-screen">
+      <div className="admin-console-bg" aria-hidden="true" />
+      <div className="admin-console-wrap">
+        <header className="admin-command-bar">
+          <Link href="/admin" className="admin-brand" aria-label="EcoQuest Admin Overview">
+            <PixelIcon type="shield" className="is-nav" />
+            <span>
+              <strong>EcoQuest</strong>
+              <small>Admin Control</small>
+            </span>
+          </Link>
+
+          <div className="admin-status-strip">
+            <span className="admin-online-dot" />
+            <span>SECURE SESSION</span>
+            <em>{adminEmail}</em>
+          </div>
+
+          <button type="button" className="admin-logout-button" onClick={handleLogout}>
+            <PixelIcon type="logout" className="is-tiny" />
+            <span>Logout</span>
+          </button>
+        </header>
+
+        <div className="admin-layout-grid">
+          <aside className="admin-sidebar">
+            <div className="admin-sidebar-title">
+              <span>ADMIN MODULES</span>
+              <i />
+            </div>
+            <nav className="admin-nav-list" aria-label="Admin navigation">
+              {navItems.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`admin-nav-item ${active ? "is-active" : ""}`}
+                  >
+                    <PixelIcon type={item.icon} className="is-tiny" />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
             </nav>
-          </div>
-        </aside>
-        <section className="flex-1 min-w-0">
-          <div className="mb-6">
-            <h1 className="font-pixel text-lg text-eco-400 mb-2">{title}</h1>
-            <p className="text-gray-500 text-sm">Operational dashboard untuk mengelola EcoQuest.</p>
-          </div>
-          {children}
-        </section>
+          </aside>
+
+          <main className="admin-content-panel">
+            <div className="admin-page-heading">
+              <div>
+                <span className="admin-kicker">OPERATION CENTER</span>
+                <h1>{title}</h1>
+                <p>Kelola konten, pemain, quest, edukasi, dan keamanan EcoQuest dari satu console.</p>
+              </div>
+              <Link href="/dashboard" className="admin-preview-link">
+                <PixelIcon type="rpg" className="is-tiny" />
+                Player View
+              </Link>
+            </div>
+            {children}
+          </main>
+        </div>
       </div>
     </div>
   );

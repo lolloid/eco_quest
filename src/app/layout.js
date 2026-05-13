@@ -143,6 +143,7 @@ function EcoNavbar() {
   const dashboardHudRoutes = ["/dashboard", "/game", "/education"];
   const useDashboardHud = Boolean(user) && dashboardHudRoutes.some((route) => pathname === route || pathname.startsWith(`${route}/`));
   const dashboardActive = pathname === "/dashboard";
+  const isAdminRoute = pathname === "/admin" || pathname.startsWith("/admin/");
 
   const handleLogout = async () => {
     try {
@@ -307,6 +308,10 @@ function EcoNavbar() {
         </div>
       </nav>
     );
+  }
+
+  if (isAdminRoute) {
+    return null;
   }
 
   const publicNavItems = [

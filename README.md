@@ -156,9 +156,92 @@ npm run install:cc0-professional-assets
 | `npm run test` | Menjalankan smoke dan unit architecture tests |
 | `npm run seed` | Seed Firestore lama/awal |
 | `npm run seed:architecture` | Seed data arsitektur terbaru |
+| `npm run admin:set-role -- <email-or-uid> admin` | Menjadikan akun Firebase sebagai admin |
 | `npm run deploy:rules` | Deploy Firestore security rules |
 | `npm run validate:game-assets` | Validasi asset pixel profesional |
 | `npm run generate:tilemap` | Generate tilemap |
+
+## Admin Access
+
+User baru otomatis dibuat dengan `role: "user"`. Untuk membuka panel admin, akun harus memiliki `role: "admin"` di dokumen `users/{uid}` Firestore.
+
+```bash
+npm run admin:set-role -- admin@email.com admin
+```
+
+Untuk mengembalikan akun menjadi user biasa:
+
+```bash
+npm run admin:set-role -- admin@email.com user
+```
+
+Panel `/admin` memiliki guard terpisah. Akun non-admin akan diarahkan ke halaman akses ditolak, sementara API admin tetap dilindungi oleh validasi token dan pengecekan role server-side.
+
+Alur login:
+
+- Akun `role: "admin"` otomatis diarahkan ke `/admin`.
+- Akun `role: "user"` otomatis diarahkan ke `/dashboard`.
+- Logout dari admin console menghapus session Firebase/cookie dan kembali ke homepage `/`.
+
+Admin console memakai layout sendiri, terpisah dari navbar public dan user dashboard. Modul admin yang tersedia:
+
+| Route | Fungsi |
+|---|---|
+| `/admin` | Overview, total user, EcoPoints, trash collected, suspicious users, top players |
+| `/admin/users` | Melihat daftar user, role, level, EcoPoints, trash, dan risk score |
+| `/admin/quests` | Membuat, edit, dan menonaktifkan quest |
+| `/admin/articles` | Mengelola artikel Education Hub |
+| `/admin/npcs` | Mengelola NPC, role, dialog, dan quest NPC |
+| `/admin/quizzes` | Mengelola quiz artikel |
+| `/admin/analytics` | Melihat active users estimate, quest completion, trash, dan artikel dibaca |
+| `/admin/suspicious` | Melihat pemain dengan suspicious score |
+
+## Akun Demo / Dummy
+
+EcoQuest tidak menyimpan password dummy hardcoded di repository. Untuk testing cepat, gunakan **Mode Demo** di halaman login.
+
+### Mode Demo Development
+
+| Field | Nilai |
+|---|---|
+| Nama profil | `Demo EcoWarrior` |
+| Email profil | `demo@ecoquest.local` |
+| Role | `user` |
+| Cara masuk | Klik tombol `Masuk Mode Demo` di halaman `/login` |
+| Password | Tidak ada, mode demo memakai session development lokal |
+
+Mode demo hanya aktif saat development dan akan nonaktif jika:
+
+```env
+NEXT_PUBLIC_DISABLE_DEMO_AUTH=true
+```
+
+### Data Seed Firestore
+
+Script `npm run seed` membuat dokumen user contoh di Firestore:
+
+| Field | Nilai |
+|---|---|
+| UID | `demo_user_001` |
+| Display name | `DemoWarrior` |
+| Email | `demo@ecoquest.id` |
+| Role | user/default |
+
+Catatan penting: data ini **bukan akun Firebase Authentication**, jadi tidak bisa login langsung memakai email tersebut. Ini hanya dokumen contoh untuk leaderboard/profile/testing data.
+
+### Akun Admin Testing
+
+Untuk akun admin, buat akun lewat `/register`, lalu ubah role akun tersebut:
+
+```bash
+npm run admin:set-role -- email-admin-kamu@example.com admin
+```
+
+Setelah login ulang:
+
+- Admin akan diarahkan otomatis ke `/admin`.
+- User biasa akan diarahkan ke `/dashboard`.
+- Akun non-admin yang membuka `/admin` akan diarahkan ke `/unauthorized`.
 
 ## Struktur Folder
 
@@ -218,7 +301,8 @@ ecoquest/
 | `/dashboard` | Dashboard pemain |
 | `/game` | Gameplay EcoQuest |
 | `/education` | Education Hub |
-| `/admin` | Admin panel |
+| `/admin` | Admin control console, hanya untuk role admin |
+| `/unauthorized` | Halaman akses ditolak untuk user non-admin |
 
 ## Gameplay Controls
 
@@ -320,7 +404,8 @@ Jika `OPENROUTER_API_KEY` tidak tersedia, sistem akan memakai fallback response 
 - Jalankan `npm run build`.
 - Jalankan `npm run validate:game-assets`.
 - Deploy Firestore rules.
-- Uji register, login, logout, dashboard, education, game, recycle, dan AI.
+- Uji register, login user, login admin, logout admin, dashboard, education, game, recycle, dan AI.
+- Pastikan minimal satu akun admin dibuat dengan `npm run admin:set-role -- <email> admin`.
 - Matikan demo auth di production:
 
 ```env
